@@ -1,6 +1,7 @@
 import React from 'react';
 import BuyStock from './Components/BuyStock'
 import Navbar from './Components/Navbar/NavBar'
+import Login from './Components/Forms/Login'
 
 class App extends React.Component{
 
@@ -64,7 +65,8 @@ class App extends React.Component{
     
     return (
       <>
-      <Navbar/>
+      <Login/>
+      {/*<Navbar/>*/}
     {/*<BuyStock handleOnSubmitBuyButton={this.handleOnSubmitBuyButton}/>*/}
       </>
     );
