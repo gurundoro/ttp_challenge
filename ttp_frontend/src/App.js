@@ -3,6 +3,7 @@ import { Switch, Route, withRouter } from 'react-router-dom'
 import Transactions from './Components/Tables/Transactions'
 import PortfolioContainer from './Containers/PortfolioContainer'
 import LoginSignUpContainer from './Containers/LoginSignUpContainer';
+import './App.css';
 
 export class App extends Component {
 
@@ -30,7 +31,7 @@ export class App extends Component {
        if(data.error){
          console.log(data.error)
        }else {
-         this.setCurrentUser(data.user)
+         this.setUser(data.user)
        }
      })
      .catch(console.error)
@@ -44,12 +45,16 @@ export class App extends Component {
    
     return (
      <>
+     <div className='App'>
+       <div className="overlay">
          <Switch>
           <Route path='/login' component= {(props) => <LoginSignUpContainer {...props} user={user} setUser={setUser} />}/>
           <Route path='/signup' component={(props) => <LoginSignUpContainer {...props} user={user} setUser={setUser} />}/>
-               <Route exact path='/portfolio' component={(props) => <PortfolioContainer user={user} transactions={transactions} />}/>
+               <Route path='/portfolio' component={(props) => <PortfolioContainer user={user} transactions={transactions} />}/>
                <Route path='/transactions' component={(props) => <Transactions user={user} transactions={transactions}    />}/>
           </Switch>
+        </div>
+      </div>
       </>
     );
   }

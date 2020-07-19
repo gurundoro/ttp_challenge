@@ -41,35 +41,39 @@ export default class LoginSignUpContainer extends Component {
 
 
     loginSubmitHandler = (e) => {
-        e.preventDefault()
-        const {email, password} = this.state
-        fetch("http://localhost:3000/api/v1/login", {
-            method: "POST",
-            headers: {
-                "content-type": "application"
-            },
-            body: JSON.stringify({user:{email, password}})
-        })
+      e.preventDefault()
+      const {email, password} = this.state
+      fetch("http://localhost:3000/api/v1/login", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          accepts: "application/json"
+        },
+        body: JSON.stringify({user: {email, password}})
+      })
         .then(res => res.json())
         .then(data => {
-          if (data.error){
+          if (data.error) {
             alert(data.error)
-          }else{
+          } else {
             localStorage.setItem("token", data.jwt)
             this.props.setUser(data.user)
           }
         })
+        .catch(console.error)
     }
+  
 
     clickHandler = () => {
       this.state.clicked ?
-      this.props.history.push('/signup') :
+      this.props.history.push('/signup'):
       this.props.history.push('/login')
       this.setState(
         {
           email: '',
           username: '',
-          password: '', 
+          password: '',
+          clicked: !this.state.clicked 
         }
       )
     }

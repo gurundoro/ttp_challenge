@@ -1,4 +1,4 @@
-.container{
-    display: flex;
-    justify-content: space-evenly;
+.d-inline-flex{
+justify-content: speace between;
 }
+  

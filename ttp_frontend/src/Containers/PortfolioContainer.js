@@ -17,7 +17,7 @@ class PortfolioContainer extends Component {
          await this.setState({tickerSymbol:ticker, quantity:amount}) 
          await this.fetchStock(ticker)
          const {tickerSymbol, quantity, stockData: {price}} = this.state
-         this.buyStock(1, tickerSymbol, price, quantity)
+         this.buyStock(this.props.user, tickerSymbol, price, quantity)
       }
       
       //function to fetch stock from IEX API
@@ -45,7 +45,7 @@ class PortfolioContainer extends Component {
                transaction: {
                  share_quantity: quantity,
                  price_per:price,
-                 user_id: user,
+                 user_id: user.id,
                  ticker_symbol: symbol
                }
              }
@@ -58,11 +58,13 @@ class PortfolioContainer extends Component {
 
 
     render() {
+
+      console.log(this.props)
         return (
             <>
-            <div className="container">
+            <div className="d-flex justify-content-around align-items-center">
                <Portfolio />
-               <BuyStockForm handleOnSubmitBuyButton={this.handleOnSubmitBuyButton}/>
+               <BuyStockForm handleOnSubmitBuyButton={this.handleOnSubmitBuyButton} user={this.props.user}/>
             </div>
             </>
         )
