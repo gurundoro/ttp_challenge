@@ -23,6 +23,7 @@ class BuyStockForm extends Component {
         return (
           <div className="buy-container">
           <h1 className="text-center display-4 style={{width: '40%'}}">Buy Stock</h1>
+          <h3 className="display-7 style={{width: '40%', color:'green'}}">Balance: ${this.props.user.balance}</h3>
           <form action="" onSubmit={((e) => this.props.handleOnSubmitBuyButton(e, tickerSymbol, quantity))}>
             <div class="form-group">
                <label for="exampleInputEmail1" className="text-center">Search Stocks</label>

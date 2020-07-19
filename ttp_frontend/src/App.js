@@ -52,7 +52,7 @@ export class App extends Component {
    
     return (
      <>
-       <Navbar logOut={this.logOut} />
+       <Navbar logOut={this.logOut} user={user} />
          <Switch>
           <Route path='/login' component= {(props) => <LoginSignUpContainer {...props} user={user} setUser={setUser} />}/>
           <Route path='/signup' component={(props) => <LoginSignUpContainer {...props} user={user} setUser={setUser} />}/>

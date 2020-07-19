@@ -12,7 +12,9 @@ class Navbar extends React.Component {
           <div className="logo">
             <h1>ttp Challenge</h1>
           </div>
+         
              <ul>
+                  <li className='name'>Hi, {this.props.user.name}</li>
                   <li><a href="/Portfolio">Portfolio</a></li>
                   <li><a href="/Transactions">Transactons</a></li>
                   <li><a href="/login">Signout</a></li>
