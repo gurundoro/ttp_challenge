@@ -9,7 +9,7 @@ export default class LoginSignUpContainer extends Component {
         email: '',
         name: '',
         password: '',
-        // clicked: !this.props.history.location === '/login'
+        clicked: !this.props.history.location === '/login'
     }
     
     changeHandler = (e) => {
@@ -27,6 +27,16 @@ export default class LoginSignUpContainer extends Component {
             },
             body: JSON.stringify({user: {email, name, password}})
         })
+        .then(res => res.json())
+        .then(data => {
+          if (data.error){
+            alert(data.error)
+          }else{
+            localStorage.setItem("token", data.jwt)
+            this.props.setUser(data.user)
+          }
+        })
+        .catch(console.error)
     }
 
 
@@ -39,6 +49,15 @@ export default class LoginSignUpContainer extends Component {
                 "content-type": "application"
             },
             body: JSON.stringify({user:{email, password}})
+        })
+        .then(res => res.json())
+        .then(data => {
+          if (data.error){
+            alert(data.error)
+          }else{
+            localStorage.setItem("token", data.jwt)
+            this.props.setUser(data.user)
+          }
         })
     }
 
@@ -55,8 +74,6 @@ export default class LoginSignUpContainer extends Component {
       )
     }
     
-
-
 
     render() {
         let {
