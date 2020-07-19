@@ -21,11 +21,12 @@ class BuyStockForm extends Component {
         console.log(this.props)
         
         return (
-          <>
+          <div className="buy-container">
+          <h1 className="text-center display-4 style={{width: '40%'}}">Buy Stock</h1>
           <form action="" onSubmit={((e) => this.props.handleOnSubmitBuyButton(e, tickerSymbol, quantity))}>
             <div class="form-group">
                <label for="exampleInputEmail1" className="text-center">Search Stocks</label>
-               <input type="text" class="form-control" name="tickerSymbol" placeholder="Ticker Symbol" value={tickerSymbol} onChange={e => this.handleChange(e)} style={{width: '50%'}}/>
+               <input type="text" class="form-control" name="tickerSymbol" placeholder="Ticker Symbol" value={tickerSymbol} onChange={e => this.handleChange(e)} style={{width: '100%'}}/>
               <small id="emailHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
@@ -34,7 +35,8 @@ class BuyStockForm extends Component {
             </div>
                 <button type="submit" class="btn btn-primary">Buy</button>
           </form>  
-          </>
+          </div>
+        
         )
 
        

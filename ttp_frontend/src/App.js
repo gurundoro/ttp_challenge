@@ -3,6 +3,7 @@ import { Switch, Route, withRouter } from 'react-router-dom'
 import Transactions from './Components/Tables/Transactions'
 import PortfolioContainer from './Containers/PortfolioContainer'
 import LoginSignUpContainer from './Containers/LoginSignUpContainer';
+import Navbar from './Components/Navbar/Navbar'
 import './App.css';
 
 export class App extends Component {
@@ -37,6 +38,12 @@ export class App extends Component {
      .catch(console.error)
   }
 
+  logOut = () => {
+    localStorage.removeItem('token')
+    this.setState({user: '', transactions: []})
+    this.props.history.push('/login')
+  }
+
 
   render(){
      
@@ -45,16 +52,13 @@ export class App extends Component {
    
     return (
      <>
-     <div className='App'>
-       <div className="overlay">
+       <Navbar logOut={this.logOut} />
          <Switch>
           <Route path='/login' component= {(props) => <LoginSignUpContainer {...props} user={user} setUser={setUser} />}/>
           <Route path='/signup' component={(props) => <LoginSignUpContainer {...props} user={user} setUser={setUser} />}/>
                <Route path='/portfolio' component={(props) => <PortfolioContainer user={user} transactions={transactions} />}/>
                <Route path='/transactions' component={(props) => <Transactions user={user} transactions={transactions}    />}/>
           </Switch>
-        </div>
-      </div>
       </>
     );
   }

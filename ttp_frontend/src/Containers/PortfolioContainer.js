@@ -3,6 +3,7 @@ import Portfolio from '../Components/Tables/Portfolio'
 import BuyStockForm from '../Components/Forms/BuyStock'
 
 
+
 class PortfolioContainer extends Component {
    
     state = {
@@ -62,7 +63,7 @@ class PortfolioContainer extends Component {
       console.log(this.props)
         return (
             <>
-            <div className="d-flex justify-content-around align-items-center">
+            <div className="p-container">
                <Portfolio />
                <BuyStockForm handleOnSubmitBuyButton={this.handleOnSubmitBuyButton} user={this.props.user}/>
             </div>
