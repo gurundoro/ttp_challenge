@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class BuyStock extends Component {
+class BuyStockForm extends Component {
     
     state = {
         tickerSymbol: '',
@@ -30,4 +30,4 @@ class BuyStock extends Component {
     }
 }
 
-export default BuyStock
+export default BuyStockForm

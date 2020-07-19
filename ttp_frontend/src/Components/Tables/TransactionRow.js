@@ -15,7 +15,6 @@ class TransactionRow extends Component {
                   <td>Original Price</td>
                   <td>Current Price</td>
                   <td>Gain/Loss</td>
-                  <td>Total Value</td>
                 </tr>
             </div>
         )
