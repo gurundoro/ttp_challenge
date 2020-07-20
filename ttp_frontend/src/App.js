@@ -56,9 +56,10 @@ export class App extends Component {
     e.preventDefault()
     await this.setState({tickerSymbol:ticker, quantity:amount}) 
     await this.fetchStock(ticker)
-    
     const {valid ,tickerSymbol, quantity, stockData: {price}} = this.state
-    if(valid === true && quantity > 0){
+
+    const balance = this.state.user.balance - (price * this.state.quantity) 
+    if(valid === true && balance > 0){
     this.buyStock(this.state.user, tickerSymbol, price, quantity)
     }
     
@@ -68,11 +69,15 @@ export class App extends Component {
   fetchStock = async (tickerSymbol) => {
     try{
     let response = await fetch(`https://cloud.iexapis.com/stable/stock/${tickerSymbol}/quote?token=pk_a1bdb3b5a0ef403ba560643968b4e8e4`)
-    let data = await response.json()   
+    let data = await response.json() 
+    if(this.state.user.balance - (data.latestPrice * this.state.quantity) > 0){
     await this.setState({stockData: {
        symbol: data.symbol,
        price: data.latestPrice
     }})
+  }else{
+    alert('You do not have enough funds to complete that transaction')
+  }
    } catch {
      await this.setState({valid:!this.state.valid})
      alert('Invalid Ticker')
@@ -112,7 +117,7 @@ export class App extends Component {
   }
 
   render(){
-
+    console.log(this.state)
     const {user, transactions} = this.state
     const {setUser} = this
    
