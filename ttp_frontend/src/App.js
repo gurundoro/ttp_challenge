@@ -3,7 +3,6 @@ import { Switch, Route, withRouter } from 'react-router-dom'
 import Transactions from './Components/Tables/Transactions'
 import PortfolioContainer from './Containers/PortfolioContainer'
 import LoginSignUpContainer from './Containers/LoginSignUpContainer';
-import Navbar from './Components/Navbar/Navbar'
 import './App.css';
 
 export class App extends Component {
@@ -58,9 +57,12 @@ export class App extends Component {
     await this.fetchStock(ticker)
     const {valid ,tickerSymbol, quantity, stockData: {price}} = this.state
 
-    const balance = this.state.user.balance - (price * this.state.quantity) 
-    if(valid === true && balance > 0){
-    this.buyStock(this.state.user, tickerSymbol, price, quantity)
+    
+
+    if(valid === true){
+      if(this.state.user.balance - (price * this.state.quantity)){
+      this.buyStock(this.state.user, tickerSymbol, price, quantity)
+      }
     }
     
  }
@@ -127,7 +129,7 @@ export class App extends Component {
           <Route path='/login' render= {(props) => <LoginSignUpContainer {...props} user={user} setUser={setUser} />}/>
           <Route path='/signup' component={(props) => <LoginSignUpContainer {...props} user={user} setUser={setUser} />}/>
           <Route path='/portfolio' component={(props) => <PortfolioContainer user={user} transactions={transactions} logOut={this.logOut} handleOnSubmitBuyButton={this.handleOnSubmitBuyButton} />}/>
-          <Route path='/transactions' component={(props) => <Transactions user={user} transactions={transactions} logOut={this.logOut}   />}/>
+          <Route path='/transactions' component={(props) => <Transactions user={user} transactions={transactions} logOut={this.logOut} />}/>
         </Switch>
       </>
     );
