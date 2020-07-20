@@ -20,7 +20,7 @@ class TransactionRow extends Component {
     
     render() {
 
-        console.log(this.props)
+        
         let {ticker_symbol, share_quantity, price_per} = this.props
         let {currentPrice} = this.state
         let performance = (parseFloat(currentPrice) - parseFloat(price_per)).toFixed(2)

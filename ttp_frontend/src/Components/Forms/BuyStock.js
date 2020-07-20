@@ -9,9 +9,9 @@ class BuyStockForm extends Component {
 
      handleChange = async(e) => {
      await this.setState({[e.target.name]:e.target.value});
-      console.log(this.state)
     }
 
+   
 
 
     render() {
@@ -22,7 +22,7 @@ class BuyStockForm extends Component {
         return (
           <div className="buy-container">
           <h3 className="display-7 style={{width: '40%', color:'green'}}">Cash: ${this.props.user.balance}</h3>
-          <form action="" onSubmit={((e) => this.props.handleOnSubmitBuyButton(e, tickerSymbol, quantity))}>
+          <form action="" onSubmit={((e) => this.props.handleOnSubmitBuyButton(e, tickerSymbol, quantity))} >
             <div className="form-group">
                <label>Search Stocks</label>
                <input 

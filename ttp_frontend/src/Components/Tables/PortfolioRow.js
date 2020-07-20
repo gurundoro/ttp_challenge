@@ -11,7 +11,6 @@ class PortfolioRow extends Component {
           .then(res => res.json())
           .then(data => {
             if (data[0]) {
-            console.log(data[0])
               this.setState({ currentPrice: data[0].price.toFixed(2)})
             }
           })

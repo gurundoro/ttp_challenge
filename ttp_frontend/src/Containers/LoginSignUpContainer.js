@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import Login from '../Components/Forms/Login'
 import SignUp from '../Components/Forms/Signup'
-import { Redirect } from 'react-router-dom'
+
 
 export default class LoginSignUpContainer extends Component {
 
@@ -93,7 +94,7 @@ export default class LoginSignUpContainer extends Component {
         return (
           <div>
             { this.props.user ?
-              <Redirect to='/transactions' /> :
+              <Redirect to='/portfolio' /> :
               clicked ?
               <Login
                 email={email}
