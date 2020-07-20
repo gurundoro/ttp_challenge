@@ -46,19 +46,21 @@ export class App extends Component {
 
 
   render(){
+
+    console.log(this.state)
      
     const {user, transactions} = this.state
     const {setUser} = this
    
     return (
      <>
-       <Navbar logOut={this.logOut} user={user} />
-         <Switch>
+        <Navbar logOut={this.logOut} user={user} />
+        <Switch>
           <Route path='/login' component= {(props) => <LoginSignUpContainer {...props} user={user} setUser={setUser} />}/>
           <Route path='/signup' component={(props) => <LoginSignUpContainer {...props} user={user} setUser={setUser} />}/>
-               <Route path='/portfolio' component={(props) => <PortfolioContainer user={user} transactions={transactions} />}/>
-               <Route path='/transactions' component={(props) => <Transactions user={user} transactions={transactions}    />}/>
-          </Switch>
+          <Route path='/portfolio' component={(props) => <PortfolioContainer user={user} transactions={transactions} />}/>
+          <Route path='/transactions' component={(props) => <Transactions user={user} transactions={transactions}    />}/>
+        </Switch>
       </>
     );
   }

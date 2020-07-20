@@ -18,23 +18,22 @@ class BuyStockForm extends Component {
 
         const {tickerSymbol, quantity} = this.state
 
-        console.log(this.props)
         
         return (
           <div className="buy-container">
           <h1 className="text-center display-4 style={{width: '40%'}}">Buy Stock</h1>
           <h3 className="display-7 style={{width: '40%', color:'green'}}">Balance: ${this.props.user.balance}</h3>
           <form action="" onSubmit={((e) => this.props.handleOnSubmitBuyButton(e, tickerSymbol, quantity))}>
-            <div class="form-group">
-               <label for="exampleInputEmail1" className="text-center">Search Stocks</label>
-               <input type="text" class="form-control" name="tickerSymbol" placeholder="Ticker Symbol" value={tickerSymbol} onChange={e => this.handleChange(e)} style={{width: '100%'}}/>
-              <small id="emailHelp" class="form-text text-muted"></small>
+            <div className="form-group">
+               <label for="tickerSymbol" className="text-center">Search Stocks</label>
+               <input type="text" className="form-control" name="tickerSymbol" placeholder="Ticker Symbol" value={tickerSymbol} onChange={e => this.handleChange(e)} style={{width: '100%'}}/>
+              <small id="emailHelp" className="form-text text-muted"></small>
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label for="exampleInputPassword1">Quantity</label>
-              <input type="number" class="form-control"  name="quantity" value={quantity} onChange={(e) => this.handleChange(e)} style={{width: '50%'}}/>
+              <input type="number" className="form-control"  name="quantity" value={quantity} onChange={(e) => this.handleChange(e)} style={{width: '50%'}}/>
             </div>
-                <button type="submit" class="btn btn-primary">Buy</button>
+                <button type="submit" className="btn btn-primary">Buy</button>
           </form>  
           </div>
         
