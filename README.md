@@ -1,6 +1,6 @@
 ## Tech Talent Pipeline Challenge
 
-This is a fullstack app built with a Ruby on Rails backend and React.js Frontend.
+This is a fullstack app built with a Ruby on Rails backend and a React.js Frontend.
 
 ## User Stories
 
@@ -13,11 +13,11 @@ This is a fullstack app built with a Ruby on Rails backend and React.js Frontend
 3. A user can buy shares of stock at the current price by specifying its ticker symbol and the number of shares so they wish to invest in 
    * A user can only buy whole quantities of shares 
    * A user can only buy share if they have enough cash in their account for a given purchase 
-   * A user can only buy shares if the tiker symbol is valid 
+   * A user can only buy shares if the ticker symbol is valid 
 
 4. A user can view all transactions made to date 
 
-5. A user can view thier portfolio with all thier stocks and their current value
+5. A user can view their portfolio with all their stocks and their current value
   * Price is based on the latest price and quantity owned for a given stock 
   * Each stock owned only appears once 
 
@@ -25,7 +25,7 @@ This is a fullstack app built with a Ruby on Rails backend and React.js Frontend
   * Dispaly red if less than yesterdays close 
   * Display grey when the current price is equal to yesterdays close
   * Display green when the current price is greater than the yesterdays close 
-  (Instructions requested todays open instead of yesterdays close but could not find a free api to provide days open prices)
+  (Instructions requested todays open instead of yesterdays close but could not find a free api to provide todays opening prices)
 
 
 ## Project Screen Shots  
@@ -48,7 +48,7 @@ Example POST body:
 ### POST /transactions ###
 Example POST body:
 ```
-    { transactions: { share_quantity: quantity, price_per:price, user_id: user.id, ticker_symbol: symbol' }
+    { transactions: { share_quantity: 1, price_per: 25, user_id: 1, ticker_symbol: 'aapl' }
 
 ## Installation and Setup Instructions
 
@@ -56,26 +56,28 @@ Clone down this repository. You will need `homebrew`, `rails` and `npm` installe
 
 Installation:
 
-1. In one tap open './ttp_backend' folder and run the following commands 
- * bundles install
+1. In one tab open './ttp_backend' folder and run the following commands in order
+ * bundle install
  * rails db:create
  * rails db: migrate
  * rails s
 
-2. In another tab open './ttp_frontend' and run the following commands 
+2. In a second tab open './ttp_frontend' and run the following commands in order
   * npm install
   * npm start
   * y to confirm using an alternate port to localhost:3000 which is running the server based on the previous instructions.
 
 To Visit App:
 
-`localhost:3000  
+`localhost:3000/login  
 
 ## Reflection
 
-Along this app was bootstrapped on the Frontend using create-react-app. Design was done with Bootstrap and CSS3. Other Libraries used include React-Router. Data was retrieved from the IEX and Cloud IEX apis.
+This app was bootstrapped on the Frontend using create-react-app. Design was done with Bootstrap4 and CSS3. Other Libraries used include React-Router. Data was retrieved from the IEX and Cloud IEX apis.
 The backend was built with Ruby on Rails and gem files used include BCRYPT and JWT.
 
 Given more time I would have included unit tests.
 
-Features I wish to add would be charts to track you stocks perfromance using the Chart.js library as I did [here](https://github.com/Kudzanayi-Dzvairo/covid-tracker-react)
+Features I wish to add would be charts to track a users stocks perfromance using the Chart.js library as I did [here](https://github.com/Kudzanayi-Dzvairo/covid-tracker-react)
+
+Future iteratons will be deployed. The application is only available for local development. This should be deployed to a hosted server.  
