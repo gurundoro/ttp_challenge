@@ -57,12 +57,10 @@ export class App extends Component {
     await this.fetchStock(ticker)
     const {valid ,tickerSymbol, quantity, stockData: {price}} = this.state
 
+    const balance = this.state.user.balance - (price * this.state.quantity) 
     
-
-    if(valid === true){
-      if(this.state.user.balance - (price * this.state.quantity)){
-      this.buyStock(this.state.user, tickerSymbol, price, quantity)
-      }
+    if(valid === true && balance > 0){
+    this.buyStock(this.state.user, tickerSymbol, price, quantity)
     }
     
  }
