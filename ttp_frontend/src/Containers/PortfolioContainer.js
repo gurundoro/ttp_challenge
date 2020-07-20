@@ -22,9 +22,12 @@ class PortfolioContainer extends Component {
          await this.fetchStock(ticker)
          
          const {tickerSymbol, quantity, stockData: {price}} = this.state
+         
          if(this.state.valid === true){
          this.buyStock(this.props.user, tickerSymbol, price, quantity)
          }
+
+         
       }
       
       //function to fetch stock from IEX API
@@ -40,7 +43,7 @@ class PortfolioContainer extends Component {
           await this.setState({valid:!this.state.valid})
           alert('Invalid Ticker')
         }
-         console.log(this.state)
+      
        }
      
 
@@ -73,7 +76,6 @@ class PortfolioContainer extends Component {
 
       const {transactions, user, logOut} = this.props
 
-     console.log(this.props)
         return (
             <>
             <Navbar logOut={logOut} user={user}/>

@@ -25,11 +25,24 @@ class BuyStockForm extends Component {
           <form action="" onSubmit={((e) => this.props.handleOnSubmitBuyButton(e, tickerSymbol, quantity))}>
             <div className="form-group">
                <label>Search Stocks</label>
-               <input type="text" className="form-control" name="tickerSymbol" placeholder="Ticker Symbol" value={tickerSymbol} onChange={e => this.handleChange(e)} style={{width: '100%'}}/>
+               <input 
+               type="text" 
+               className="form-control" 
+               name="tickerSymbol" 
+               placeholder="Ticker Symbol" 
+               value={tickerSymbol} onChange={e => this.handleChange(e)} 
+               style={{width: '100%'}}
+               />
             </div>
             <div className="form-group">
               <label >Quantity</label>
-              <input type="number" min="0" className="form-control"  name="quantity" value={quantity} onChange={(e) => this.handleChange(e)} style={{width: '50%'}}/>
+              <input 
+              type="number"
+               min="0" className="form-control"  
+               name="quantity" value={quantity} 
+               onChange={(e) => this.handleChange(e)} 
+               style={{width: '50%'}}
+               />
             </div>
                 <button type="submit" className="btn btn-primary">Buy</button>
           </form>  
@@ -44,6 +57,3 @@ class BuyStockForm extends Component {
 
 export default BuyStockForm
 
-// <input type="text" name="tickerSymbol" value={tickerSymbol} onChange={e => this.handleChange(e)}/>
-// <input type="number" name="quantity" value={quantity} onChange={(e) => this.handleChange(e)}/>
-// <button>Buy</button>

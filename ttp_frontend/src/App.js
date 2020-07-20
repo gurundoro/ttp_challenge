@@ -41,14 +41,12 @@ export class App extends Component {
   logOut = () => {
     localStorage.removeItem('token')
     this.setState({user: '', transactions: []})
-    this.props.history.push('/login')
+    this.props.history.push('/signup')
   }
 
 
   render(){
 
-    console.log(this.state)
-     
     const {user, transactions} = this.state
     const {setUser} = this
    

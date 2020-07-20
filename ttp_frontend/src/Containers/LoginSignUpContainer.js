@@ -9,7 +9,7 @@ export default class LoginSignUpContainer extends Component {
         email: '',
         name: '',
         password: '',
-        clicked: !this.props.history.location === '/signup'
+        clicked: !this.props.history.location === '/login'
     }
     
     changeHandler = (e) => {
@@ -65,6 +65,7 @@ export default class LoginSignUpContainer extends Component {
   
 
     clickHandler = () => {
+      console.log('clicked')
       this.state.clicked ?
       this.props.history.push('/signup'):
       this.props.history.push('/login')
@@ -92,7 +93,7 @@ export default class LoginSignUpContainer extends Component {
         return (
           <div>
             { this.props.user ?
-              <Redirect to='/portfolio' /> :
+              <Redirect to='/transactions' /> :
               clicked ?
               <Login
                 email={email}

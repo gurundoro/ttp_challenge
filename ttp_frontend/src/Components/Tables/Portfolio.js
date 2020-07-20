@@ -8,10 +8,10 @@ const Portfolio = (props) => {
 
 
       transactions.forEach(transaction => {
-          stocks[transaction['ticker_symbol']] = stocks[transaction['ticker_symbol']] + transaction['share_quantity'] || transaction['share_quantity']
+          stocks[transaction['ticker_symbol']] = stocks[transaction['ticker_symbol']] + transaction['share_quantity']  || transaction['share_quantity'];
       })
 
-      let stocksArr = Object.keys(stocks).map(stock => ({ticker: stock, share: stocks[stock]}))
+      let stocksArr = Object.keys(stocks).map(stock => ({ticker: stock, share: stocks[stock],}))
 
 
 
