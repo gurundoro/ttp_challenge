@@ -69,7 +69,7 @@ Installation:
 
 To Visit App:
 
-`localhost:3000/login  
+`localhost:3000/signup  
 
 ## Reflection
 
