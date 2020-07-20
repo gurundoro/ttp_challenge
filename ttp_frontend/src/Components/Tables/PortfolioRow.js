@@ -7,6 +7,7 @@ class PortfolioRow extends Component {
     }
 
     componentDidMount() {
+        //api call for current price
         fetch(`https://api.iextrading.com/1.0/tops/last?symbols=${this.props.ticker}`)
           .then(res => res.json())
           .then(data => {
@@ -15,7 +16,7 @@ class PortfolioRow extends Component {
             }
           })
 
-
+       //I could not locate an a free api with open price so calculation is based on previous days closing price 
         fetch(`https://cloud.iexapis.com/stable/stock/${this.props.ticker}/previous?token=pk_a1bdb3b5a0ef403ba560643968b4e8e4`)
           .then(res => res.json())
           .then(data => {
@@ -31,13 +32,11 @@ class PortfolioRow extends Component {
     render() {
 
        const {ticker, share} = this.props
-     
        let {currentPrice, openPrice} = this.state
        let value = (parseInt(share) * parseFloat(currentPrice)).toFixed(2)
        let performance = {color: currentPrice > openPrice ? 'green' : currentPrice < openPrice ? 'red' : 'grey' }
 
   
-
         return (
                 <tr>
                   <td style={performance}>{ticker}</td>

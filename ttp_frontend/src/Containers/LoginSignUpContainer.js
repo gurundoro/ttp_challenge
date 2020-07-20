@@ -16,7 +16,8 @@ export default class LoginSignUpContainer extends Component {
     changeHandler = (e) => {
         this.setState({[e.target.name] :  e.target.value})
     }
-
+    
+    //create new user client-side
     signUpSubmitHandler = (e) => {
         e.preventDefault()
         const {email, name, password} = this.state
@@ -40,7 +41,7 @@ export default class LoginSignUpContainer extends Component {
         .catch(console.error)
     }
 
-
+    //login-in user client side 
     loginSubmitHandler = (e) => {
       e.preventDefault()
       const {email, password} = this.state
@@ -64,7 +65,7 @@ export default class LoginSignUpContainer extends Component {
         .catch(console.error)
     }
   
-
+   //switch between login and signup form 
     clickHandler = () => {
       console.log('clicked')
       this.state.clicked ?

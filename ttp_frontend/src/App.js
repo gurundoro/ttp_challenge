@@ -17,7 +17,7 @@ export class App extends Component {
     valid: true,
   }
   
-  //update app with looged in users data
+  //update app with logged in users data
   setUser = (user) => {
     this.setState({user: user, transactions: user.transactions})
   }
@@ -110,8 +110,6 @@ export class App extends Component {
       .catch(console.error)
 
   }
-
-
 
   render(){
 

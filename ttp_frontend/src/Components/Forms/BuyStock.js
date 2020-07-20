@@ -6,12 +6,11 @@ class BuyStockForm extends Component {
         tickerSymbol: '',
         quantity: 0
     }
+    
 
-     handleChange = async(e) => {
+    handleChange = async(e) => {
      await this.setState({[e.target.name]:e.target.value});
     }
-
-   
 
 
     render() {

@@ -6,11 +6,12 @@ const Portfolio = (props) => {
       const {transactions} = props
       let stocks = {}
 
-
+      //create object that adds stocks to avoid showing duplicates 
       transactions.forEach(transaction => {
           stocks[transaction['ticker_symbol']] = stocks[transaction['ticker_symbol']] + transaction['share_quantity']  || transaction['share_quantity'];
       })
-
+      
+      //crreate array of unique stocks
       let stocksArr = Object.keys(stocks).map(stock => ({ticker: stock, share: stocks[stock],}))
 
 
