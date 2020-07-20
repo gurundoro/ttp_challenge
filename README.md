@@ -65,7 +65,7 @@ Installation:
 2. In a second tab open './ttp_frontend' and run the following commands in order
   * npm install
   * npm start
-  * y to confirm using an alternate port to localhost:3000 which is running the server based on the previous instructions.
+  * y (to confirm using an alternate port to localhost:3000 which is running the server based on the previous instructions.)
 
 To Visit App:
 
