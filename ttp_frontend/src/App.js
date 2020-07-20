@@ -80,7 +80,7 @@ export class App extends Component {
  
   }
 
- //
+ //post purchase to backend transactions endpoint 
   buyStock = (user, symbol, price,quantity) => {
     fetch("http://localhost:3000/api/v1/transactions", {
       method: "POST",
