@@ -29,7 +29,7 @@ class BuyStockForm extends Component {
             </div>
             <div className="form-group">
               <label >Quantity</label>
-              <input type="number" className="form-control"  name="quantity" value={quantity} onChange={(e) => this.handleChange(e)} style={{width: '50%'}}/>
+              <input type="number" min="0" className="form-control"  name="quantity" value={quantity} onChange={(e) => this.handleChange(e)} style={{width: '50%'}}/>
             </div>
                 <button type="submit" className="btn btn-primary">Buy</button>
           </form>  

@@ -54,12 +54,11 @@ export class App extends Component {
    
     return (
      <>
-        <Navbar logOut={this.logOut} user={user} />
         <Switch>
           <Route path='/login' render= {(props) => <LoginSignUpContainer {...props} user={user} setUser={setUser} />}/>
           <Route path='/signup' component={(props) => <LoginSignUpContainer {...props} user={user} setUser={setUser} />}/>
-          <Route path='/portfolio' component={(props) => <PortfolioContainer user={user} transactions={transactions} />}/>
-          <Route path='/transactions' component={(props) => <Transactions user={user} transactions={transactions}    />}/>
+          <Route path='/portfolio' component={(props) => <PortfolioContainer user={user} transactions={transactions} logOut={this.logOut} />}/>
+          <Route path='/transactions' component={(props) => <Transactions user={user} transactions={transactions} logOut={this.logOut}   />}/>
         </Switch>
       </>
     );
@@ -68,7 +67,7 @@ export class App extends Component {
 
 }
 
-export default (App);
+export default withRouter(App);
 
 
 

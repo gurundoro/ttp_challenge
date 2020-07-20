@@ -8,7 +8,7 @@ def create
         @token = encode_token(user_id: @user.id)
         render json: {user:UserSerializer.new(@user), jwt: @token}, status: :created
     else
-        render json: {error: 'An account with this email exists already'}, status: :not_acceptable
+        render json: {error: 'An account with this email exists already. Click below to Log In'}, status: :not_acceptable
    end
 end
 
