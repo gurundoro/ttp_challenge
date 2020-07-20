@@ -1,7 +1,9 @@
 import React from 'react'
+import TransactionRow from './TransactionRow'
 
 
-const Transactions = () => {
+const Transactions = (props) => {
+    
     return (
     <>
        <div className="container mb-3 mt-3">
@@ -14,11 +16,12 @@ const Transactions = () => {
                     <th>Original Price</th>
                     <th>Current Price</th>
                     <th>Gain/Loss</th>
-                    <th>Total Value</th>
                 </tr>
             </thead>
             <tbody>
-            
+            {props.transactions.map((transaction, index) => (
+                <TransactionRow key={index} {...transaction} />
+            ))}
             </tbody>
         </table>
        </div>

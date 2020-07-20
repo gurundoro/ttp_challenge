@@ -32,7 +32,7 @@ class PortfolioContainer extends Component {
          console.log(this.state)
        }
      
-     //fucntion to Post bought stock to rails API
+     //function to Post bought stock to rails API
        buyStock = (user, symbol, price,quantity) => {
          fetch("http://localhost:3000/api/v1/transactions", {
            method: "POST",
