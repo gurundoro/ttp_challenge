@@ -25,7 +25,7 @@ class PortfolioContainer extends Component {
        fetchStock = async (tickerSymbol) => {
          let response = await fetch(`https://cloud.iexapis.com/stable/stock/${tickerSymbol}/quote?token=pk_a1bdb3b5a0ef403ba560643968b4e8e4`)
          let data = await response.json()   
-          await this.setState({stockData: {
+         await this.setState({stockData: {
             symbol: data.symbol,
             price: data.latestPrice
          }})

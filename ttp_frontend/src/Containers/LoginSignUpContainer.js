@@ -9,7 +9,7 @@ export default class LoginSignUpContainer extends Component {
         email: '',
         name: '',
         password: '',
-        clicked: !this.props.history.location === '/login'
+        clicked: !this.props.history.location === '/signup'
     }
     
     changeHandler = (e) => {
@@ -90,7 +90,7 @@ export default class LoginSignUpContainer extends Component {
  
     
         return (
-          <div className='overlay'>
+          <div>
             { this.props.user ?
               <Redirect to='/portfolio' /> :
               clicked ?

@@ -34,7 +34,6 @@ class ApplicationController < ActionController::API
     end
   
     def authorized
-      # Guard clause for being logged in already
       return unless logged_in?
   
       render json: { message: 'Please log in' }, status: :unauthorized

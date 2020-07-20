@@ -1,12 +1,11 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+
 
 
 class Navbar extends React.Component {
     
   
   render() {
-
   return (
         <nav>
           <div className="logo">
@@ -17,7 +16,7 @@ class Navbar extends React.Component {
                   <li className='name'>Hi, {this.props.user.name}</li>
                   <li><a href="/Portfolio">Portfolio</a></li>
                   <li><a href="/Transactions">Transactons</a></li>
-                  <li><a href="/login">Signout</a></li>
+                  <button onClick={this.props.logOut}>Signout</button>
              </ul>
         </nav>
 
