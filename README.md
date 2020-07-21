@@ -79,5 +79,3 @@ The backend was built with Ruby on Rails and gem files used include BCRYPT and J
 Given more time I would have included unit tests.
 
 Features I wish to add would be charts to track a users stocks perfromance using the Chart.js library as I did [here](https://github.com/Kudzanayi-Dzvairo/covid-tracker-react)
-
-Future iteratons will be deployed. The application is only available for local development. This should be deployed to a hosted server.  
